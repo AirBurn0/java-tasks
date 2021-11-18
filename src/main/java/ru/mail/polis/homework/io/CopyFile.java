@@ -66,12 +66,10 @@ public class CopyFile {
     private static void copyFile(Path from, Path to) throws IOException {
         try (InputStream in = Files.newInputStream(from);
             OutputStream out = Files.newOutputStream(to)) {
-
             byte[] buffer = new byte[BYTE_BUFFER_SIZE];
             int size;
             while ((size = in.read(buffer)) > 0) {
                 out.write(buffer, 0, size);
-                size = in.read(buffer);
             }
         }
     }
